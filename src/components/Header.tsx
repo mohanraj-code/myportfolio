@@ -46,14 +46,14 @@ const Header: React.FC = () => {
       e.preventDefault();
 
       if (location.pathname === "/") {
-        // Already on home page, just scroll to section
+        // Already on home page, update URL with hash and scroll to section
+        window.history.pushState(null, "", item.href);
         const element = document.querySelector(item.href);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       } else {
-        // Navigate to home page with hash using React Router
-        // This will trigger the useEffect in HomePage to scroll to the section
+        // Navigate to home page with hash for BrowserRouter
         navigate(`/${item.href}`);
       }
     }

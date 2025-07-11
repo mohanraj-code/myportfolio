@@ -53,11 +53,20 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <Button size="lg" variant="default">
-              <a href="#contact" className="flex items-center gap-2">
-                Get In Touch
-                <Mail size={18} />
-              </a>
+            <Button
+              size="lg"
+              variant="default"
+              onClick={() => {
+                window.history.pushState(null, "", "#contact");
+                const element = document.querySelector("#contact");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="flex items-center gap-2"
+            >
+              Get In Touch
+              <Mail size={18} />
             </Button>
             <Link to="/projects">
               <Button variant="outline" size="lg">
