@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import HomePage from "@/pages/HomePage";
@@ -38,6 +39,7 @@ function App(): JSX.Element {
             <Route path="/projects" element={<ProjectsPage />} />
           </Routes>
           <Footer />
+          <BackToTop />
           <Toaster />
         </div>
       </Router>
