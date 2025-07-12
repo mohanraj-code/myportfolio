@@ -117,7 +117,11 @@ const Projects: React.FC = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="text-xs cursor-default select-none"
+                      >
                         {tech}
                       </Badge>
                     ))}

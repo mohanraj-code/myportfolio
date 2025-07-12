@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -161,7 +160,10 @@ const ProjectsPage: React.FC = () => {
                         <CardTitle className="text-xl">
                           {project.title}
                         </CardTitle>
-                        <Badge variant="outline" className="text-xs">
+                        <Badge
+                          variant="outline"
+                          className="text-xs cursor-default select-none"
+                        >
                           {project.year}
                         </Badge>
                       </div>
@@ -175,7 +177,7 @@ const ProjectsPage: React.FC = () => {
                           <Badge
                             key={tech}
                             variant="secondary"
-                            className="text-xs"
+                            className="text-xs cursor-default select-none"
                           >
                             {tech}
                           </Badge>
