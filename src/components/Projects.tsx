@@ -71,7 +71,7 @@ const Projects: React.FC = () => {
       className="section-padding bg-slate-100 dark:bg-gray-800 section-transition relative"
     >
       {/* Gradient overlay for smooth transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 dark:from-gray-900 to-transparent opacity-60 z-5"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 dark:from-gray-900 to-transparent opacity-60 z-0"></div>
 
       <div className="container mx-auto px-6">
         <motion.div
@@ -134,7 +134,7 @@ const Projects: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-12 relative z-10"
         >
           <Link to="/projects">
             <Button size="lg" variant="outline" className="group">

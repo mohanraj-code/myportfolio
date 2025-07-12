@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 
 const Hero: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Gradient overlay for smooth transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-100 dark:from-gray-800 to-transparent opacity-60 z-5"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-100 dark:from-gray-800 to-transparent opacity-60 z-0"></div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -53,27 +54,15 @@ const Hero: React.FC = () => {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">
               Core Technologies
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
               {["Java & Spring Boot", "React & Angular", "AI Integration"].map(
-                (skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{
-                      delay: 1 + index * 0.1,
-                      duration: 0.6,
-                      ease: [0.4, 0, 0.2, 1],
-                    }}
-                    whileHover={{
-                      scale: 1.05,
-                      y: -2,
-                      transition: { duration: 0.2 },
-                    }}
-                    className="bg-slate-200 dark:bg-gray-800 px-3 py-2 rounded-lg text-sm font-medium text-slate-700 dark:text-gray-300 hover:bg-slate-300 dark:hover:bg-gray-700 hover:shadow-md transition-all duration-300 text-center cursor-default"
+                (skill) => (
+                  <Badge
+                    variant="secondary"
+                    className="text-sm cursor-default select-none px-4 py-2 font-medium bg-white/80 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-200"
                   >
                     {skill}
-                  </motion.div>
+                  </Badge>
                 )
               )}
             </div>
