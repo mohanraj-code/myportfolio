@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
@@ -20,8 +19,6 @@ interface Project {
   image: string;
   technologies: string[];
   year: string;
-  liveUrl: string;
-  githubUrl: string;
 }
 
 const ProjectsPage: React.FC = () => {
@@ -39,8 +36,6 @@ const ProjectsPage: React.FC = () => {
         "Task Scheduler",
       ],
       year: "2025",
-      liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "DeskGee - Appointment Booking System",
@@ -49,8 +44,6 @@ const ProjectsPage: React.FC = () => {
       image: "Modern appointment booking interface",
       technologies: ["Spring Boot", "WebSocket", "Spring Cloud", "RabbitMQ"],
       year: "2024",
-      liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Question Answer Bot",
@@ -65,8 +58,6 @@ const ProjectsPage: React.FC = () => {
         "Machine Learning",
       ],
       year: "2023-2024",
-      liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Qbrother - Online Queue Management",
@@ -80,8 +71,6 @@ const ProjectsPage: React.FC = () => {
         "VM Scaling",
       ],
       year: "2023",
-      liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Robotic Palletizing System",
@@ -95,8 +84,6 @@ const ProjectsPage: React.FC = () => {
         "Robotics",
       ],
       year: "2021",
-      liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Multi QR Code Decoder",
@@ -110,18 +97,8 @@ const ProjectsPage: React.FC = () => {
         "Manufacturing",
       ],
       year: "2019",
-      liveUrl: "#",
-      githubUrl: "#",
     },
   ];
-
-  const handleProjectClick = (type: string, title: string): void => {
-    toast({
-      title: "🚧 Feature Not Implemented",
-      description: `${type} link for "${title}" isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀`,
-      duration: 3000,
-    });
-  };
 
   return (
     <>
@@ -193,7 +170,7 @@ const ProjectsPage: React.FC = () => {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <Badge
                             key={tech}
@@ -203,31 +180,6 @@ const ProjectsPage: React.FC = () => {
                             {tech}
                           </Badge>
                         ))}
-                      </div>
-
-                      <div className="flex gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1"
-                          onClick={() =>
-                            handleProjectClick("Live demo", project.title)
-                          }
-                        >
-                          <ExternalLink size={16} className="mr-2" />
-                          Live Demo
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1"
-                          onClick={() =>
-                            handleProjectClick("GitHub", project.title)
-                          }
-                        >
-                          <Github size={16} className="mr-2" />
-                          Code
-                        </Button>
                       </div>
                     </CardContent>
                   </Card>

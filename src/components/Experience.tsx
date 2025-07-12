@@ -23,14 +23,17 @@ const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="section-padding bg-gray-50 dark:bg-gray-800"
+      className="section-padding bg-slate-50 dark:bg-gray-800 section-transition relative"
     >
+      {/* Gradient overlay for smooth transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 dark:from-gray-900 to-transparent opacity-60 z-5"></div>
+
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900  dark:text-gray-100 mb-6">
@@ -45,21 +48,26 @@ const Experience: React.FC = () => {
         <div className="max-w-4xl mx-auto ">
           {/* Experience */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <div className="space-y-6">
               {experience.map((job, index) => (
                 <motion.div
                   key={job.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    delay: index * 0.2,
+                    duration: 0.8,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
                 >
-                  <Card className="hover:shadow-lg transition-shadow duration-300">
+                  <Card className="hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50">
                     <CardHeader>
                       <CardTitle className="text-xl">{job.title}</CardTitle>
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">

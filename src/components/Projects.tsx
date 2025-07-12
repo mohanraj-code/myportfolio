@@ -68,14 +68,17 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="section-padding bg-gray-50 dark:bg-gray-800"
+      className="section-padding bg-slate-100 dark:bg-gray-800 section-transition relative"
     >
+      {/* Gradient overlay for smooth transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 dark:from-gray-900 to-transparent opacity-60 z-5"></div>
+
       <div className="container mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
@@ -92,12 +95,17 @@ const Projects: React.FC = () => {
           {featuredProjects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.8,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 group">
+              <Card className="h-full hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-500 group backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <CardTitle className="text-xl">{project.title}</CardTitle>

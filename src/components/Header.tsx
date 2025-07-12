@@ -28,7 +28,6 @@ const Header: React.FC = () => {
   const navItems: NavItem[] = [
     { name: "About", href: "#about" },
     { name: "Projects", href: "/projects", isRoute: true },
-    { name: "Experience", href: "#experience" },
   ];
 
   const handleNavClick = (item: NavItem, e: React.MouseEvent) => {
@@ -72,7 +71,7 @@ const Header: React.FC = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
-            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg"
+            ? "bg-slate-50/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg"
             : "bg-transparent"
         }`}
       >
@@ -115,7 +114,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="mt-4 pb-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg"
+              className="mt-4 pb-4 bg-slate-50/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg"
             >
               <div className="flex flex-col space-y-2 p-4">
                 {navItems.map((item, index) => (

@@ -17,7 +17,7 @@
 }
 
 :root {
-  --background: 0 0% 100%;
+  --background: 210 20% 98%;
   --foreground: 222.2 84% 4.9%;
   --card: 0 0% 100%;
   --card-foreground: 222.2 84% 4.9%;
@@ -87,6 +87,66 @@ html {
 
 .header-offset {
   padding-top: 6rem;
+}
+
+/* Modern section transitions */
+.section-transition {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.section-transition:hover::before {
+  opacity: 1;
+}
+
+/* Smooth fade transitions */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Parallax effect for backgrounds */
+.parallax-bg {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Enhanced light theme readability */
+.light {
+  --background: 210 20% 98%;
+  --card: 0 0% 99%;
+  --secondary: 210 30% 94%;
+  --muted: 210 30% 94%;
+  --accent: 210 30% 94%;
+  --border: 214.3 31.8% 88%;
+  --input: 214.3 31.8% 88%;
+}
+
+/* Improved contrast for light theme text */
+.light .text-gray-600 {
+  color: rgb(75 85 99);
+}
+
+.light .text-gray-700 {
+  color: rgb(55 65 81);
 }
 
 @media (max-width: 768px) {
