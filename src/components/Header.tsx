@@ -78,7 +78,7 @@ const Header: React.FC = () => {
           >
             <Link
               to="/"
-              className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity cursor-pointer"
+              className="text-1xl font-bold gradient-text hover:opacity-80 transition-opacity cursor-pointer"
               onClick={() => {
                 // Always scroll to top when clicking the logo
                 window.scrollTo({ top: 0, behavior: "smooth" });

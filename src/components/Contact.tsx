@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, LucideIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { toast } from '@/components/ui/use-toast';
+import { Mail, Send, LucideIcon, Github, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "@/components/ui/use-toast";
 
 interface FormData {
   name: string;
@@ -23,31 +23,45 @@ interface ContactInfo {
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const contactInfo: ContactInfo[] = [
     {
       icon: Mail,
-      title: 'Email',
-      value: 'hello@itsmohanraj.com',
-      link: 'mailto:hello@itsmohanraj.com'
-    }
+      title: "Email",
+      value: "hello@itsmohanraj.com",
+      link: "mailto:hello@itsmohanraj.com",
+    },
+    {
+      icon: Github,
+      title: "GitHub",
+      value: "github.com",
+      link: "https://github.com",
+    },
+    {
+      icon: Linkedin,
+      title: "LinkedIn",
+      value: "linkedin.com/in/mohanraj-parthasarathy",
+      link: "https://linkedin.com/in/mohanraj-parthasarathy",
+    },
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Missing Information",
@@ -60,16 +74,17 @@ const Contact: React.FC = () => {
 
     toast({
       title: "🚧 Contact Form Not Connected",
-      description: "Form submission isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
+      description:
+        "Form submission isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
       duration: 3000,
     });
 
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     });
   };
 
@@ -83,10 +98,12 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-            Get In Touch
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Get In Touch
+            </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-gray-300 dark:bg-gray-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? I'd love to hear from
             you!
@@ -117,8 +134,11 @@ const Contact: React.FC = () => {
                 <Card className="hover:shadow-lg transition-shadow duration-300">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="bg-gradient-to-br from-blue-500 to-purple-600 w-12 h-12 rounded-full flex items-center justify-center">
-                        <info.icon className="text-white" size={20} />
+                      <div className="bg-gray-100 dark:bg-gray-800 w-12 h-12 rounded-xl flex items-center justify-center">
+                        <info.icon
+                          className="text-gray-600 dark:text-gray-400"
+                          size={20}
+                        />
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900 dark:text-gray-100">
@@ -142,10 +162,12 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-6 text-white"
+              className="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700"
             >
-              <h4 className="text-xl font-bold mb-3">Let's Work Together</h4>
-              <p className="opacity-90">
+              <h4 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+                Let's Work Together
+              </h4>
+              <p className="text-gray-600 dark:text-gray-400">
                 I'm always open to discussing new opportunities, enterprise
                 solutions, and innovative AI/ML projects. Let's create something
                 impactful together!
