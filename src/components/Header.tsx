@@ -90,7 +90,7 @@ const Header: React.FC = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
               >
-                Mohanraj P
+                Mohanraj
               </Link>
             </motion.div>
 

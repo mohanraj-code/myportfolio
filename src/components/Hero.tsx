@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import ParallaxSection from "./ParallaxSection";
 
 const Hero: React.FC = () => {
   return (
@@ -8,35 +7,17 @@ const Hero: React.FC = () => {
       id="about"
       className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-gray-900 relative overflow-hidden pt-20 section-transition"
     >
-      {/* Parallax geometric background */}
-      <ParallaxSection
-        speed={0.2}
-        className="absolute inset-0 opacity-5 dark:opacity-10"
-      >
+      {/* Subtle geometric background */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 border border-gray-300 dark:border-gray-700 rounded-full"></div>
-      </ParallaxSection>
-
-      <ParallaxSection
-        speed={0.4}
-        className="absolute inset-0 opacity-5 dark:opacity-10"
-      >
         <div className="absolute bottom-1/3 right-1/3 w-64 h-64 border border-gray-200 dark:border-gray-800 rounded-full"></div>
-      </ParallaxSection>
-
-      <ParallaxSection
-        speed={0.6}
-        className="absolute inset-0 opacity-5 dark:opacity-10"
-      >
         <div className="absolute top-1/2 right-1/4 w-32 h-32 border border-gray-400 dark:border-gray-600 rounded-full"></div>
-      </ParallaxSection>
+      </div>
 
       {/* Gradient overlay for smooth transition */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-100 dark:from-gray-800 to-transparent opacity-60 z-5"></div>
 
-      <ParallaxSection
-        speed={0.8}
-        className="container mx-auto px-6 text-center relative z-10"
-      >
+      <div className="container mx-auto px-6 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,7 +79,7 @@ const Hero: React.FC = () => {
             </div>
           </motion.div>
         </motion.div>
-      </ParallaxSection>
+      </div>
     </section>
   );
 };
