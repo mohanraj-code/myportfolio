@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
 
           {/* Copyright */}
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            2025 © Mohanraj Parthasarathy. Built with React & TypeScript.
+            2025 © Mohanraj Parthasarathy
           </p>
         </motion.div>
       </div>

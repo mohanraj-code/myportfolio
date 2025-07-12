@@ -94,8 +94,32 @@ const Header: React.FC = () => {
               </Link>
             </motion.div>
 
-            {/* Menu Button */}
-            <div className="flex items-center space-x-2">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              {navItems.map((item) => (
+                <div key={item.name}>
+                  {item.isRoute ? (
+                    <Link
+                      to={item.href}
+                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={(e) => handleNavClick(item, e)}
+                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                    >
+                      {item.name}
+                    </button>
+                  )}
+                </div>
+              ))}
+              <ThemeToggle />
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center space-x-2">
               <ThemeToggle />
               <Button
                 variant="ghost"
@@ -107,14 +131,14 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Navigation Menu */}
+          {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="mt-4 pb-4 bg-slate-50/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg"
+              className="md:hidden mt-4 pb-4 bg-slate-50/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg"
             >
               <div className="flex flex-col space-y-2 p-4">
                 {navItems.map((item, index) => (

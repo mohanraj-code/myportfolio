@@ -123,10 +123,26 @@ html {
   transform: translateY(0);
 }
 
-/* Parallax effect for backgrounds */
+/* Enhanced parallax effect for backgrounds */
 .parallax-bg {
   transform: translateZ(0);
   will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Scroll blur transition effects */
+.scroll-blur-transition {
+  will-change: filter, transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth scroll performance optimization */
+.scroll-optimized {
+  transform: translateZ(0);
+  will-change: transform, filter;
 }
 
 /* Enhanced light theme readability */
