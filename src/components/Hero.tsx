@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                 Backend Developer
               </span>{" "}
-              with 7+ years of experience building scalable enterprise
+              with 6+ years of experience building scalable enterprise
               applications. I focus on clean architecture, efficient
               problem-solving, and delivering reliable solutions that meet
               business objectives.
