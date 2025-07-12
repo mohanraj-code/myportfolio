@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Menu, X} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -28,9 +28,7 @@ const Header: React.FC = () => {
   const navItems: NavItem[] = [
     { name: "About", href: "#about" },
     { name: "Projects", href: "/projects", isRoute: true },
-    { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
   ];
 
   const handleNavClick = (item: NavItem, e: React.MouseEvent) => {
@@ -60,118 +58,98 @@ const Header: React.FC = () => {
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link
-              to="/"
-              className="text-1xl font-bold gradient-text hover:opacity-80 transition-opacity cursor-pointer"
-              onClick={() => {
-                // Always scroll to top when clicking the logo
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              Mohanraj P
-            </Link>
-          </motion.div>
+    <>
+      {/* Overlay when menu is open */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-              >
-                {item.isRoute ? (
-                  <Link
-                    to={item.href}
-                    className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors font-medium"
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(item, e)}
-                    className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors font-medium cursor-pointer"
-                  >
-                    {item.name}
-                  </a>
-                )}
-              </motion.div>
-            ))}
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled || isMobileMenuOpen
+            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * navItems.length }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
             >
-              <ThemeToggle />
+              <Link
+                to="/"
+                className="text-1xl font-bold gradient-text hover:opacity-80 transition-opacity cursor-pointer"
+                onClick={() => {
+                  // Always scroll to top when clicking the logo
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Mohanraj P
+              </Link>
             </motion.div>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4"
-          >
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <div key={item.name}>
-                  {item.isRoute ? (
-                    <Link
-                      to={item.href}
-                      className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors font-medium py-2 block"
-                      onClick={(e) => handleNavClick(item, e)}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors font-medium py-2 block cursor-pointer"
-                      onClick={(e) => handleNavClick(item, e)}
-                    >
-                      {item.name}
-                    </a>
-                  )}
-                </div>
-              ))}
+            {/* Menu Button */}
+            <div className="flex items-center space-x-2">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </Button>
             </div>
-          </motion.div>
-        )}
-      </nav>
-    </motion.header>
+          </div>
+
+          {/* Navigation Menu */}
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mt-4 pb-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg border border-gray-200 dark:border-gray-700 shadow-lg"
+            >
+              <div className="flex flex-col space-y-2 p-4">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                  >
+                    {item.isRoute ? (
+                      <Link
+                        to={item.href}
+                        className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 font-medium py-3 px-3 block rounded-lg text-center"
+                        onClick={(e) => handleNavClick(item, e)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 font-medium py-3 px-3 block rounded-lg cursor-pointer text-center"
+                        onClick={(e) => handleNavClick(item, e)}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </nav>
+      </motion.header>
+    </>
   );
 };
 

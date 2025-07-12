@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
 
 interface Project {
@@ -18,7 +17,6 @@ interface Project {
   description: string;
   image: string;
   technologies: string[];
-  year: string;
   liveUrl: string;
   githubUrl: string;
 }
@@ -38,7 +36,6 @@ const Projects: React.FC = () => {
         "CSV Export",
         "Task Scheduler",
       ],
-      year: "2025",
       liveUrl: "#",
       githubUrl: "#",
     },
@@ -48,7 +45,6 @@ const Projects: React.FC = () => {
         "Built a comprehensive appointment booking system using Spring Boot backend with real-time WebSocket communication and distributed services using Spring Cloud and RabbitMQ.",
       image: "Modern appointment booking interface",
       technologies: ["Spring Boot", "WebSocket", "Spring Cloud", "RabbitMQ"],
-      year: "2024",
       liveUrl: "#",
       githubUrl: "#",
     },
@@ -64,7 +60,6 @@ const Projects: React.FC = () => {
         "Python",
         "Machine Learning",
       ],
-      year: "2023-2024",
       liveUrl: "#",
       githubUrl: "#",
     },
@@ -106,9 +101,6 @@ const Projects: React.FC = () => {
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <Badge variant="outline" className="text-xs">
-                      {project.year}
-                    </Badge>
                   </div>
                   <CardDescription className="text-gray-600 dark:text-gray-400">
                     {project.description}
