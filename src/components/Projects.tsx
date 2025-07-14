@@ -40,15 +40,6 @@ const Projects: React.FC = () => {
       githubUrl: "#",
     },
     {
-      title: "DeskGee - Appointment Booking System",
-      description:
-        "Built a comprehensive appointment booking system using Spring Boot backend with real-time WebSocket communication and distributed services using Spring Cloud and RabbitMQ.",
-      image: "Modern appointment booking interface",
-      technologies: ["Spring Boot", "WebSocket", "Spring Cloud", "RabbitMQ"],
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
       title: "Question Answer Bot",
       description:
         "Trained a Large Language Model (LLM) for domain-specific question answering using Retrieval-Augmented Generation (RAG) and deployed on Azure AI Studio for scalability.",
