@@ -35,15 +35,7 @@ const ProjectsPage: React.FC = () => {
         "Task Scheduler",
       ],
       year: "2025",
-    },
-    {
-      title: "DeskGee - Appointment Booking System",
-      description:
-        "Built a comprehensive appointment booking system using Spring Boot backend with real-time WebSocket communication and distributed services using Spring Cloud and RabbitMQ.",
-      image: "Modern appointment booking interface",
-      technologies: ["Spring Boot", "WebSocket", "Spring Cloud", "RabbitMQ"],
-      year: "2024",
-    },
+    }, 
     {
       title: "Question Answer Bot",
       description:
@@ -57,19 +49,6 @@ const ProjectsPage: React.FC = () => {
         "Machine Learning",
       ],
       year: "2023-2024",
-    },
-    {
-      title: "Qbrother - Online Queue Management",
-      description:
-        "Solved WebSocket scaling issues across multiple VMs by implementing RabbitMQ as a shared message broker for real-time queue synchronization.",
-      image: "Queue management system dashboard",
-      technologies: [
-        "WebSocket",
-        "RabbitMQ",
-        "Distributed Systems",
-        "VM Scaling",
-      ],
-      year: "2023",
     },
     {
       title: "Robotic Palletizing System",
@@ -96,6 +75,27 @@ const ProjectsPage: React.FC = () => {
         "Manufacturing",
       ],
       year: "2019",
+    },
+    {
+      title: "Qbrother - Online Queue Management",
+      description:
+        "Solved WebSocket scaling issues across multiple VMs by implementing RabbitMQ as a shared message broker for real-time queue synchronization.",
+      image: "Queue management system dashboard",
+      technologies: [
+        "WebSocket",
+        "RabbitMQ",
+        "Distributed Systems",
+        "VM Scaling",
+      ],
+      year: "2023",
+    },
+    {
+      title: "DeskGee - Appointment Booking System",
+      description:
+        "Built a comprehensive appointment booking system using Spring Boot backend with real-time WebSocket communication and distributed services using Spring Cloud and RabbitMQ.",
+      image: "Modern appointment booking interface",
+      technologies: ["Spring Boot", "WebSocket", "Spring Cloud", "RabbitMQ"],
+      year: "2024",
     },
   ];
 
