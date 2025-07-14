@@ -54,6 +54,19 @@ const Projects: React.FC = () => {
       liveUrl: "#",
       githubUrl: "#",
     },
+    {
+      title: "Multi QR Code Decoder",
+      description:
+        "Created an application that scans multiple QR codes simultaneously for manufacturing dock operations, optimizing forklift operator time through advanced image processing.",
+      image: "QR code scanning interface for logistics",
+      technologies: [
+        "Image Processing",
+        "QR Code Detection",
+        "Computer Vision",
+        "Manufacturing",
+      ],
+      year: "2019",
+    },
   ];
 
   return (
